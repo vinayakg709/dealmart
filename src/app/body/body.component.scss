@@ -1,0 +1,31 @@
+.row{
+    margin-right: 0px;
+    margin-left: 0px;
+}
+.col{
+    margin-right: 0px;
+    margin-left: 0px;
+}
+
+.circular{
+    clip-path:circle(44%);
+    max-height: 240px;
+    max-width:auto;
+    box-shadow: 10 10 10 10;
+}
+
+
+
+.sports{
+    max-height: 600px;
+    max-width: auto;
+    margin: auto;
+    padding-left: 15rem;
+}
+
+.beauty{
+    max-height: 650px;
+    max-width: auto;
+    margin: auto;
+    padding-right: 15rem;
+}
