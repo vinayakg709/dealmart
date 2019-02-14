@@ -1,0 +1,21 @@
+<div class="container-fluid" >
+  <div class="row signupRow"  >
+<form class="text-center border border-light p-5 z-depth-2 " (ngSubmit)="onActivate(a)" #a="ngForm">
+
+  <p class="h4 mb-4">ENTER OTP</p>
+  <div class="from-group" >
+  <input type="text" class="form-control mb-4" placeholder="Enter OTP" name='otp' ngModel>
+</div>
+
+  <button mdbBtn color="info" block="true" class="my-4" type="submit">Submit OTP</button>
+
+  <p>Havn't got OTP??
+    <a href="">Resend OTP</a>
+  </p>
+
+</form>
+
+  </div>
+  
+  <img class="spimg" src="../../../assets/images/login_back.svg" alt="">
+</div>

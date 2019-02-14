@@ -1,76 +1,51 @@
-<div class="container-fluid">
-  <div class="row" >
-    <!-- Material form login -->
-<mdb-card class="modal">
+<div class="container-fluid" >
+  <div class="row signupRow"  >
+<form class="text-center border border-light p-4 z-depth-3 col-4" (ngSubmit)="onSignup(f)" #f="ngForm">
 
-  <mdb-card-header class="info-color white-text text-center py-4">
-    <h5>
-      <strong>Sign in</strong>
-    </h5>
-  </mdb-card-header>
+  <p class="h2 mb-4">SIGN UP</p>
 
+  <div class="form-group">
+  <input type="text" id="username" name="username" ngModel class="form-control mb-4" placeholder="Username">
+  </div>
 
-  <!--Card content-->
-  <mdb-card-body class="px-lg-5 pt-0">
+  <div class="form-group">
+  <input type="email" id="email" class="form-control mb-4" placeholder="E-mail" name="email" ngModel>
+  </div>
+  <div class="form-group">
+  <input type="password" id="password" class="form-control" placeholder="Password" name='password' ngModel>
+  </div>
+  <small class="form-text text-muted mb-4">
+    At least 8 characters and 1 digit
+  </small>
+  <div class="form-group">
+  <input type="confirm_password" class="form-control" placeholder="Confirm Password" name='confirm_password'  ngModel >
+  </div>
 
-    <!-- Form -->
-    <form class="text-center" style="color: #757575;">
+  <button mdbBtn color="info" block="true" class="my-4" type="submit">Sign Up</button>
 
-      <!-- Email -->
-      <div class="md-form">
-        <input type="email" id="materialLoginFormEmail" class="form-control" mdbInputDirective>
-        <label for="materialLoginFormEmail">E-mail</label>
-      </div>
+  <p>or sign up with:</p>
+  <a type="button" class="light-blue-text mx-2">
+    <mdb-icon fab icon="google"></mdb-icon>
+  </a>
+  <a type="button" class="light-blue-text mx-2">
+    <mdb-icon fab icon="facebook"></mdb-icon>
+  </a>
+  <a type="button" class="light-blue-text mx-2">
+    <mdb-icon fab icon="twitter"></mdb-icon>
+  </a>
+  <a type="button" class="light-blue-text mx-2">
+    <mdb-icon fab icon="linkedin"></mdb-icon>
+  </a>
+  
 
-      <!-- Password -->
-      <div class="md-form">
-        <input type="password" id="materialLoginFormPassword" class="form-control" mdbInputDirective>
-        <label for="materialLoginFormPassword">Password</label>
-      </div>
+  <hr>
 
-      <div class="d-flex justify-content-around">
-        <div>
-          <!-- Remember me -->
-          <mdb-checkbox>Remember me</mdb-checkbox>
-        </div>
-        <div>
-          <!-- Forgot password -->
-          <a href="">Forgot password?</a>
-        </div>
-      </div>
+  <p>By clicking
+    <em>Sign up</em> you agree to our
+    <a href="" target="_blank">terms of service</a> and
+    <a href="" target="_blank">terms of service</a>. </p>
 
-      <!-- Sign in button -->
-      <button mdbBtn color="info" outline="true" rounded="true" block="true" class="my-4 waves-effect z-depth-0" mdbWavesEffect
-        type="submit">Sign in</button>
-
-      <!-- Register -->
-      <p>Not a member?
-        <a href="">Register</a>
-      </p>
-
-      <!-- Social login -->
-      <p>or sign in with:</p>
-      <a type="button" class="btn-floating btn-fb btn-sm">
-        <mdb-icon fab icon="facebook"></mdb-icon>
-      </a>
-      <a type="button" class="btn-floating btn-tw btn-sm">
-        <mdb-icon fab icon="twitter"></mdb-icon>
-      </a>
-      <a type="button" class="btn-floating btn-li btn-sm">
-        <mdb-icon fab icon="linkedin"></mdb-icon>
-      </a>
-      <a type="button" class="btn-floating btn-git btn-sm">
-        <mdb-icon fab icon="heart"></mdb-icon>
-      </a>
-
-    </form>
-    <!-- Form -->
-
-  </mdb-card-body>
-
-</mdb-card>
-<!-- Material form login -->
-
+</form>
   </div>
   
   <img class="spimg" src="../../../assets/images/login_back.svg" alt="">

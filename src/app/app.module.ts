@@ -18,6 +18,10 @@ import { SportsComponent } from './sports/sports.component';
 import { ElectronicsComponent } from './electronics/electronics.component';
 import { CosmeticsComponent } from './cosmetics/cosmetics.component';
 import { SignupComponent } from './signup/signup.component';
+import { SigninComponent } from './signin/signin.component';
+import { ActivateComponent } from './activate/activate.component';
+import { ServerService } from './services/server.service';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -32,7 +36,9 @@ import { SignupComponent } from './signup/signup.component';
     SportsComponent,
     ElectronicsComponent,
     CosmeticsComponent,
-    SignupComponent
+    SignupComponent,
+    SigninComponent,
+    ActivateComponent
   ],
   imports: [
     BrowserModule,
@@ -40,8 +46,9 @@ import { SignupComponent } from './signup/signup.component';
     MDBBootstrapModule.forRoot(),
     FormsModule,
     AppRoutingModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [ServerService],
   bootstrap: [AppComponent],
   schemas: [ NO_ERRORS_SCHEMA ]
 })
