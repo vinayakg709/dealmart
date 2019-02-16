@@ -5,7 +5,7 @@ import { User, loginuser } from "./user.model";
 @Injectable({ providedIn: 'root' })
 export class ServerService{
     u_id: number;
-    readonly rootUrl = 'http://d57eb149.ngrok.io';
+    readonly rootUrl = 'http://5678ec1a.ngrok.io';
     constructor(private http: HttpClient) { }
 
     registerUser(user: User){
@@ -56,6 +56,10 @@ setAdmintoken(token: string) {
 
   getAdminToken() {
     return localStorage.getItem('admin');
+  }
+
+  getcategories(){
+      return this.http.get(this.rootUrl + '/api/category/')
   }
     
 

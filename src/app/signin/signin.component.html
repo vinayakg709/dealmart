@@ -1,14 +1,14 @@
 <div class="container-fluid" >
   <div class="row signupRow"  >
-<form class="text-center border border-light p-5 z-depth-3 " (ngSubmit)="onSignin(f)" #f="ngForm">
+<form class="text-center border border-light p-5 z-depth-3 " (ngSubmit)="onSignin(s)" #s="ngForm">
 
   <p class="h4 mb-4">Sign in</p>
   <div class="form-group">
-  <input type="email" id="defaultLoginFormEmail" class="form-control mb-4" placeholder="E-mail or Username" name="uname_or_em" ngModel>
+  <input type="email" id="defaultLoginFormEmail" class="form-control mb-4" placeholder="E-mail or Username" name="uname_or_em" ngModel required>
 </div>
 
 <div class="form-group">
-  <input type="password" id="defaultLoginFormPassword" class="form-control mb-4" placeholder="Password" name="password" ngModel >
+  <input type="password" id="defaultLoginFormPassword" class="form-control mb-4" placeholder="Password" name="password" ngModel required >
 </div>
 
   <div class="d-flex justify-content-around">
@@ -20,7 +20,7 @@
     </div>
   </div>
 
-  <button mdbBtn color="info" block="true" class="my-4" type="submit">Sign in</button>
+  <button mdbBtn color="info" block="true" class="my-4" type="submit" [disabled]='!s.valid'>Sign in</button>
 
   <p>Not a member?
     <a href="">Register</a>
