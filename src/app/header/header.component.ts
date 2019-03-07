@@ -16,16 +16,23 @@ export class HeaderComponent implements OnInit {
   grocery_sub = [];
   sports_sub =[];
   books_sub = [];
+  isAdminLoggedIn: boolean;
   constructor(private server: ServerService) { }
 
   ngOnInit() {
-    
+    this.isAdminLoggedIn = this.server.loggedIn();
   }
+
   onload(){
     this.server.getcategories().subscribe(
       res => {
         console.log(res);
         this.data = res;
+        for( let i=0;i < this.data.length  ; i++){
+          this.id.push(this.data[i].id)
+        }
+        console.log(this.id);
+        this.id=[];
         // for( let i=0;i < this.data.length  ; i++){
         //   console.log(this.data.subsubcategory.length)
         //   if(this.data[i].category.category == 'men')
@@ -37,5 +44,9 @@ export class HeaderComponent implements OnInit {
         // this.men_subsub=[];
       }
     );
+  }
+
+  logout(){
+    this.server.removeToken();
   }
 }

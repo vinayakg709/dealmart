@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ServerService } from '../services/server.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-signin',
@@ -10,7 +11,7 @@ import { ServerService } from '../services/server.service';
 export class SigninComponent implements OnInit {
   data: any;
   u: any;
-  constructor(private server:ServerService) { }
+  constructor(private server:ServerService, private router:Router) { }
 
   ngOnInit() {
   }
@@ -29,6 +30,8 @@ export class SigninComponent implements OnInit {
           resp => {
             this.data = resp;
             console.log(this.data);
+            this.server.setAdmintoken(this.data.token);
+            this.router.navigate(['/', '']);
           },
           err =>  console.log(err)
         );

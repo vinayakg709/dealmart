@@ -5,7 +5,8 @@ import { User, loginuser } from "./user.model";
 @Injectable({ providedIn: 'root' })
 export class ServerService{
     u_id: number;
-    readonly rootUrl = 'http://5678ec1a.ngrok.io';
+    login: boolean;
+    readonly rootUrl = 'http://89846302.ngrok.io';
     constructor(private http: HttpClient) { }
 
     registerUser(user: User){
@@ -50,17 +51,26 @@ tokenUser(username: string, password: string){
 return this.http.post(this.rootUrl + '/api-token-auth/', bod);    
 }
     
-setAdmintoken(token: string) {
+  setAdmintoken(token: string) {
     localStorage.setItem('admin', token);
   }
 
   getAdminToken() {
     return localStorage.getItem('admin');
   }
+  removeToken() {
+    return localStorage.removeItem('admin');
+  }
 
   getcategories(){
       return this.http.get(this.rootUrl + '/api/category/')
   }
     
+  loggedIn(){
+    if(this.getAdminToken())
+        return true
+    else 
+        return false
+  }
 
 }

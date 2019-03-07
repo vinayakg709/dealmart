@@ -22,12 +22,15 @@
           <li class="nav-item">
                 <a class="nav-link waves-light" mdbWavesEffect>Books</a>
             </li>
+            <li class="nav-item" *ngIf="isAdminLoggedIn" >
+                <a class="nav-link waves-light" mdbWavesEffect>Booksmm</a>
+            </li>
 
           <li class="nav-item dropdown" dropdown>
               <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect (click)= "onload()">
               Electronics<span class="caret"></span></a>
               <div *dropdownMenu class="dropdown-menu dropdown dropdown-primary" role="menu">
-                  <a class="dropdown-item waves-light" mdbWavesEffect >hj</a>
+                  <a class="dropdown-item waves-light" mdbWavesEffect *ngFor="let i of id;">{{ i+1 }}</a>
                   <a class="dropdown-item waves-light" mdbWavesEffect href="#">Another action</a>
                   <a class="dropdown-item waves-light" mdbWavesEffect href="#">Something else here</a>
                   <div class="divider dropdown-divider"></div>
@@ -36,21 +39,30 @@
           </li>
 
       </ul>
-
       <form class="form-inline waves-light" mdbWavesEffect>
           <div class="md-form my-0">
               <input class="form-control mr-sm-2 p-1" type="text" placeholder=" Search">
           </div>
       </form>
+
       <div class="dropdown nav-item" dropdown>
       <a type="button" class="grey-text user dropdown-toggle" dropdownToggle>
             <i class="fas fa-user-alt fa-lg "></i>
       </a>
-      <div *dropdownMenu class="dropdown-menu dropdown dropdown-primary" role="menu">
+      <ng-template [ngIf]="!isAdminLoggedIn">
+      <div *dropdownMenu class="dropdown-menu dropdown dropdown-primary" role="menu" >
             <a class="dropdown-item waves-light" mdbWavesEffect routerLink="signup">SignUp</a>
             <div class="divider dropdown-divider"></div>
             <a class="dropdown-item waves-light" mdbWavesEffect routerLink="signin">Login</a>
-        </div>
+      </div>
+      </ng-template>
+      <ng-template [ngIf]="isAdminLoggedIn">
+      <div *dropdownMenu class="dropdown-menu dropdown dropdown-primary" role="menu" >
+        <a class="dropdown-item waves-light" mdbWavesEffect routerLink="myprofile">My Profile</a>
+        <div class="divider dropdown-divider"></div>
+        <a class="dropdown-item waves-light" mdbWavesEffect routerLink="logout" (click)="logout()">Logout</a>
+      </div>
+    </ng-template>
     </div>
 
       <a type="button" class="grey-text">
