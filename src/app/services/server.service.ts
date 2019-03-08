@@ -6,7 +6,7 @@ import { User, loginuser } from "./user.model";
 export class ServerService{
     u_id: number;
     login: boolean;
-    readonly rootUrl = 'http://89846302.ngrok.io';
+    readonly rootUrl = 'http://c33dd15d.ngrok.io';
     constructor(private http: HttpClient) { }
 
     registerUser(user: User){
@@ -46,7 +46,6 @@ tokenUser(username: string, password: string){
         password: password,
     }
     console.log(bod);
-    
 
 return this.http.post(this.rootUrl + '/api-token-auth/', bod);    
 }
@@ -59,7 +58,7 @@ return this.http.post(this.rootUrl + '/api-token-auth/', bod);
     return localStorage.getItem('admin');
   }
   removeToken() {
-    return localStorage.removeItem('admin');
+    localStorage.removeItem('admin');
   }
 
   getcategories(){

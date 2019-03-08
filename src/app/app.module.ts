@@ -22,6 +22,8 @@ import { SigninComponent } from './signin/signin.component';
 import { ActivateComponent } from './activate/activate.component';
 import { ServerService } from './services/server.service';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { ShowComponent } from './show/show.component';
+import { ProductComponent } from './product/product.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +40,9 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     CosmeticsComponent,
     SignupComponent,
     SigninComponent,
-    ActivateComponent
+    ActivateComponent,
+    ShowComponent,
+    ProductComponent
   ],
   imports: [
     BrowserModule,

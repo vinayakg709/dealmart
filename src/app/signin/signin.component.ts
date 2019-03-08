@@ -31,7 +31,8 @@ export class SigninComponent implements OnInit {
             this.data = resp;
             console.log(this.data);
             this.server.setAdmintoken(this.data.token);
-            this.router.navigate(['/', '']);
+            window.location.reload();
+            this.router.navigate(['/']);
           },
           err =>  console.log(err)
         );

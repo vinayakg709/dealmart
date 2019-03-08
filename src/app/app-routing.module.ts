@@ -10,6 +10,8 @@ import { CosmeticsComponent } from './cosmetics/cosmetics.component';
 import { SignupComponent } from './signup/signup.component';
 import { SigninComponent } from './signin/signin.component';
 import { ActivateComponent } from './activate/activate.component';
+import { ShowComponent } from './show/show.component';
+import { ProductComponent } from './product/product.component';
 
 const routes: Routes = [
   {path: "", component: BodyComponent},
@@ -21,8 +23,9 @@ const routes: Routes = [
   {path: "cosmetics", component: CosmeticsComponent},
   {path: "signup", component: SignupComponent},
   {path: "signin", component: SigninComponent},
-  {path: "activate", component: ActivateComponent}
-
+  {path: "activate", component: ActivateComponent},
+  {path: "product", component: ProductComponent},
+  {path: ":h", component: ShowComponent}
 ];
 
 @NgModule({

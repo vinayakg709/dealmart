@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ServerService } from '../services/server.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -9,6 +10,7 @@ import { ServerService } from '../services/server.service';
 export class HeaderComponent implements OnInit {
   data: any;
   id=[];
+  sscat=[];
   men_subsub = [];
   women_subsub = [];
   kids_sub =[];
@@ -17,36 +19,42 @@ export class HeaderComponent implements OnInit {
   sports_sub =[];
   books_sub = [];
   isAdminLoggedIn: boolean;
-  constructor(private server: ServerService) { }
+  constructor(private server: ServerService, private router: Router) { }
 
   ngOnInit() {
     this.isAdminLoggedIn = this.server.loggedIn();
-  }
 
-  onload(){
     this.server.getcategories().subscribe(
       res => {
         console.log(res);
         this.data = res;
-        for( let i=0;i < this.data.length  ; i++){
-          this.id.push(this.data[i].id)
-        }
-        console.log(this.id);
-        this.id=[];
-        // for( let i=0;i < this.data.length  ; i++){
-        //   console.log(this.data.subsubcategory.length)
-        //   if(this.data[i].category.category == 'men')
-        //   this.men_subsub.push(this.data[i].subsubcategory)
-        //   else if(this.data[i].category.category == 'women')
-        //   this.women_subsub.push(this.data[i].subsubcategory)
-        // }
-        // console.log(this.men_subsub);
-        // this.men_subsub=[];
       }
     );
   }
 
+
+  onmen(cat:string){
+    this.id=[];
+    this.sscat=[];
+    for( let i=0;i < this.data.length; i++)
+    {
+      if(this.data[i]['category']==cat)
+      {
+      for( let j=0;j < this.data[i]['subcategory'].length; j++){
+      this.id.push(this.data[i].subcategory[j]);
+      }
+      }
+      
+    }
+    
+    console.log(this.id);
+  }
+  
+
   logout(){
     this.server.removeToken();
+    window.location.reload();
+    this.router.navigate(['/']);
+
   }
 }
