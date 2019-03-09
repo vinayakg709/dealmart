@@ -5,16 +5,23 @@
     <a class="navbar-brand ml-2" routerLink="/" > DEALMART</a></mdb-navbar-brand>
 
   <links>
-
+    
       <ul class="navbar-nav mr-auto">
             <li class="nav-item dropdown" dropdown>
                 <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect (click)= "onmen('men')">
                 Mens<span class="caret"></span></a>
                 <div *dropdownMenu class="dropdown-menu dropdown dropdown-primary" role="menu">
-                <div  *ngFor="let i of id;" >
-                    <a class="dropdown-item waves-light" mdbWavesEffect routerLink="{{ i.subcategory }}"><strong>{{ i.subcategory }}</strong></a>
-                    <a class="dropdown-item waves-light"  *ngFor="let j of i.subsubcategory;" routerLink="{{ j.subsubcategory }}">  {{ j.subsubcategory }}</a>
-                </div>
+                <table mdbTable>
+                
+                
+                <tr  *ngFor="let i of id;" mdbTableCol ><td style="float:left">
+                    <a class="dropdown-item waves-light" mdbWavesEffect routerLink="{{ i.subcategory }}" ><strong>{{ i.subcategory }}</strong></a>
+                    <a class="dropdown-item waves-light"  *ngFor="let j of i.subsubcategory;" (click)="products(j.subsubcategory)"> {{ j.subsubcategory }}</a>
+                </td>
+                </tr>
+                
+                
+                </table>
                 </div>
             </li>
 

@@ -19,6 +19,8 @@ export class HeaderComponent implements OnInit {
   sports_sub =[];
   books_sub = [];
   isAdminLoggedIn: boolean;
+  public prod : any = "hello"; 
+  public pro:any;
   constructor(private server: ServerService, private router: Router) { }
 
   ngOnInit() {
@@ -57,4 +59,16 @@ export class HeaderComponent implements OnInit {
     this.router.navigate(['/']);
 
   }
+
+  products(pro: any){
+    this.server.getproducts(pro).subscribe(
+      res => {
+       console.log(res);
+       this.server.produ = res;
+       this.router.navigate([pro]);
+      }
+    )
+  }
+
+
 }

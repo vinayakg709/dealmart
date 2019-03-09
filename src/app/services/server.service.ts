@@ -6,7 +6,8 @@ import { User, loginuser } from "./user.model";
 export class ServerService{
     u_id: number;
     login: boolean;
-    readonly rootUrl = 'http://c33dd15d.ngrok.io';
+    produ: any;
+    readonly rootUrl = 'http://cc6bd45d.ngrok.io';
     constructor(private http: HttpClient) { }
 
     registerUser(user: User){
@@ -23,8 +24,8 @@ export class ServerService{
     return this.http.post(this.rootUrl + '/api/signup/', body);    
     }
 
-    activateUser ( otp: number) {
-        console.log(typeof(this.u_id));
+    activateUser ( otp: number ) {
+    console.log(typeof(this.u_id));
     return this.http.post(this.rootUrl + '/api/activate/'+ this.u_id + '/', otp );
   }
 
@@ -71,5 +72,15 @@ return this.http.post(this.rootUrl + '/api-token-auth/', bod);
     else 
         return false
   }
+  
+  getproducts(pro: any){
+    return this.http.get(this.rootUrl + '/api/product/', {
+      params: {
+        search : pro
+      }
+    })
+}
+  
+  
 
 }
