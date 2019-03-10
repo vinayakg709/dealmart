@@ -2,25 +2,22 @@
   <br>
 <h2> <strong> {{ cat }}</strong> </h2>
 <hr>
-<button (click)='show()'>showww</button>
 <div class="row mt-5 mb-5" >
 
-    <div class="col-3 mt-3 zoom" >
-      <mdb-card>
+    <div class="col-3 mt-3 zoom" *ngFor= 'let i of id;' >
+      <mdb-card  >
           <div class="view rgba-white-slight waves-light " mdbWavesEffect>
-            <mdb-card-img src="../assets/images/sq1.jpg" alt="Card image cap pro"></mdb-card-img>
+            <mdb-card-img src="{{ i.image1 }}" alt="Card image cap pro"></mdb-card-img>
             <a>
               <div class="mask"></div>
             </a>
           </div>
           <mdb-card-body>
-            <mdb-card-title>
-              <h4>Etables</h4>
+            <mdb-card-title >
+              <h5 >{{ i.name }}</h5>
+              <p class="text-muted" >{{"Rs " + i.price}}</p>
             </mdb-card-title>
-
-        
-        
-            <p class="text-muted">+ Shop Now</p>
+            
           </mdb-card-body>
         </mdb-card>
       </div>

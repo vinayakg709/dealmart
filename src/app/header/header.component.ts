@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ServerService } from '../services/server.service';
 import { Router } from '@angular/router';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-header',
@@ -19,8 +20,8 @@ export class HeaderComponent implements OnInit {
   sports_sub =[];
   books_sub = [];
   isAdminLoggedIn: boolean;
-  public prod : any = "hello"; 
   public pro:any;
+  produ: any;
   constructor(private server: ServerService, private router: Router) { }
 
   ngOnInit() {
@@ -59,16 +60,35 @@ export class HeaderComponent implements OnInit {
     this.router.navigate(['/']);
 
   }
+  // onsearch(){
+  //   console.log(form.value.search);
+  //     this.searchproducts(form.value.search,'');
+  // }
+  searchproducts(form: NgForm, catu: any = ''){
+    this.server.getproducts(form.value.search,catu).subscribe(
+      res => {
+       this.server.cate = '';
+       console.log(res);
+       this.server.p = res;
+       this.router.navigate([form.value.search]);
+      }
+    )
+  }
 
-  products(pro: any){
-    this.server.getproducts(pro).subscribe(
+  product(pro: any,cat:any){
+    console.log(cat);
+    this.server.cate = cat;
+    this.server.getproducts(pro,cat).subscribe(
       res => {
        console.log(res);
-       this.server.produ = res;
+       this.server.p = res;
+       console.log(this.server.p);
        this.router.navigate([pro]);
       }
     )
   }
+
+
 
 
 }
