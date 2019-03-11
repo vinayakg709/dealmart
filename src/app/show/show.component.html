@@ -1,11 +1,11 @@
 <div class="container" >
   <br>
-<h2> <strong> {{ cat }}</strong> </h2>
+<h2> <strong> {{ scat }}</strong> </h2>
 <hr>
 <div class="row mt-5 mb-5" >
 
-    <div class="col-3 mt-3 zoom" *ngFor= 'let i of id;' >
-      <mdb-card  >
+    <div class="col-3 mt-3 zoom" *ngFor= 'let i of id;'  >
+      <mdb-card  (click)='showpro(i.id)'>
           <div class="view rgba-white-slight waves-light " mdbWavesEffect>
             <mdb-card-img src="{{ i.image1 }}" alt="Card image cap pro"></mdb-card-img>
             <a>

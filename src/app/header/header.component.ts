@@ -22,6 +22,7 @@ export class HeaderComponent implements OnInit {
   isAdminLoggedIn: boolean;
   public pro:any;
   produ: any;
+  cat:any;
   constructor(private server: ServerService, private router: Router) { }
 
   ngOnInit() {
@@ -64,28 +65,24 @@ export class HeaderComponent implements OnInit {
   //   console.log(form.value.search);
   //     this.searchproducts(form.value.search,'');
   // }
-  searchproducts(form: NgForm, catu: any = ''){
-    this.server.getproducts(form.value.search,catu).subscribe(
-      res => {
-       this.server.cate = '';
-       console.log(res);
-       this.server.p = res;
-       this.router.navigate([form.value.search]);
-      }
-    )
+  searchproducts(form: NgForm, cat: any = ''){
+    this.router.navigate([form.value.search,cat]);
+
+
+    // this.server.getproducts(form.value.search,catu).subscribe(
+    //   res => {
+    //    this.server.cate = '';
+    //    console.log(res);
+    //    this.server.p = res;
+    //    this.router.navigate([form.value.search]);
+    //   }
+    // )
   }
 
   product(pro: any,cat:any){
     console.log(cat);
     this.server.cate = cat;
-    this.server.getproducts(pro,cat).subscribe(
-      res => {
-       console.log(res);
-       this.server.p = res;
-       console.log(this.server.p);
-       this.router.navigate([pro]);
-      }
-    )
+    this.router.navigate([pro,cat]);
   }
 
 

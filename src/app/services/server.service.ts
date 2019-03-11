@@ -7,9 +7,9 @@ export class ServerService{
     u_id: number;
     login: boolean;
     cate: any;
-    p:any;
-    
-    readonly rootUrl = 'http://433d12b8.ngrok.io';
+    p:any;    
+    pid:any;
+    readonly rootUrl = 'http://8dc457cc.ngrok.io';
     constructor(private http: HttpClient) { }
 
     registerUser(user: User){
@@ -18,8 +18,8 @@ export class ServerService{
             email: user.email,
             password: user.password,
             confirm_password: user.confirm_password
-        
-        }
+
+          }
         console.log(body);
         
 
@@ -85,14 +85,12 @@ return this.http.post(this.rootUrl + '/api-token-auth/', bod);
     });
 }
 
-product(pro: any,cat: any){
-  return this.http.get(this.rootUrl + '/api/product/', {
-    params: {
-      search: pro, 
-      category__category: cat
-    }
-    
-  });
+product(pid:any){
+  return this.http.get(this.rootUrl + '/api/product/' + pid + '/')
+}
+
+addtocart(pid:any){
+  return this.http.get(this.rootUrl + '/api/cart/' + pid + '/')
 }
   
   

@@ -24,6 +24,8 @@ import { ServerService } from './services/server.service';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { ShowComponent } from './show/show.component';
 import { ProductComponent } from './product/product.component';
+import { FootwearComponent } from './footwear/footwear.component';
+import { ViewCartComponent } from './view-cart/view-cart.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +44,9 @@ import { ProductComponent } from './product/product.component';
     SigninComponent,
     ActivateComponent,
     ShowComponent,
-    ProductComponent
+    ProductComponent,
+    FootwearComponent,
+    ViewCartComponent
   ],
   imports: [
     BrowserModule,

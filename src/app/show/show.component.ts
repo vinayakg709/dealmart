@@ -10,25 +10,23 @@ import { ServerService } from '../services/server.service';
 })
 export class ShowComponent implements OnInit {
   produ: any;
-  cat:string;
+  scat:string;
   id=[];
   cate: any;
+  cat: any;
   
   @Input() public prod: HeaderComponent;
   constructor(private route: ActivatedRoute,private server: ServerService,private router: Router) { }
 
   ngOnInit() {
     
-    this.cat= this.route.snapshot.params['h'];
+    this.scat= this.route.snapshot.params['h'];
+    this.cat= this.route.snapshot.params['cat'];
     this.route.params.subscribe(
       (params: Params)=>{
-        this.cat = params['h'];
-        this.cate =  this.server.cate;
-        
-
-        console.log(this.server.p);
-        
-        this.server.getproducts(params['h'],this.cate).subscribe(
+        this.scat = params['h'];
+        this.cat = params['cat'];
+        this.server.getproducts(this.scat,this.cat).subscribe(
           res => {
            this.produ = res;
            this.id =[];
@@ -37,8 +35,7 @@ export class ShowComponent implements OnInit {
               this.id.push(this.produ[i]);
             }
             console.log(this.id);
-            this.router.navigate([params['h']]);
-            
+            this.router.navigate([this.scat]);
             }
         )
 
@@ -48,7 +45,12 @@ export class ShowComponent implements OnInit {
     
   }
 
+  showpro(pid:any){
+    console.log(pid);
+    this.server.pid = pid;
+    this.router.navigate(['/', 'product',pid] );
 
+  }
 
 
 }

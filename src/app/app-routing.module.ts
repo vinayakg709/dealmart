@@ -12,6 +12,8 @@ import { SigninComponent } from './signin/signin.component';
 import { ActivateComponent } from './activate/activate.component';
 import { ShowComponent } from './show/show.component';
 import { ProductComponent } from './product/product.component';
+import { FootwearComponent } from './footwear/footwear.component';
+import { ElectronicsComponent } from './electronics/electronics.component';
 
 const routes: Routes = [
   {path: "", component: BodyComponent},
@@ -21,11 +23,13 @@ const routes: Routes = [
   {path: "grocery", component: GroceryComponent},
   {path: "sports", component: SportsComponent},
   {path: "cosmetics", component: CosmeticsComponent},
+  {path: "footwear", component: FootwearComponent},
+  {path: "electronics", component: ElectronicsComponent},
   {path: "signup", component: SignupComponent},
   {path: "signin", component: SigninComponent},
   {path: "activate", component: ActivateComponent},
-  {path: "product", component: ProductComponent},
-  {path: ":h", component: ShowComponent}
+  {path: "product/:pid", component: ProductComponent},
+  {path: ":h/:cat", component: ShowComponent}
 ];
 
 @NgModule({
