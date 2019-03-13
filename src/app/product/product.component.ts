@@ -10,9 +10,14 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 export class ProductComponent implements OnInit {
   pid:any;
   data: any;
-  constructor(private server:ServerService,private router:Router,private route:ActivatedRoute) { }
+  cart:any;
+  isAdminLoggedIn:any =  this.server.loggedIn();
+  
+  constructor(private server:ServerService,private route:ActivatedRoute) { }
 
   ngOnInit() {
+    
+
     this.pid = this.route.snapshot.params['pid'];
     this.route.params.subscribe(
       (params: Params)=>{
@@ -30,11 +35,19 @@ export class ProductComponent implements OnInit {
     
   }
 
-  addtocart(pid:any){
+  addtocart(pid:any){    
     console.log('hello');
-    this.server.addtocart(pid).subscribe(
+    console.log(this.server.getAdminToken());
+    this.server.addtocart(pid,this.server.getAdminToken()).subscribe(
       res => {
         console.log(res);
+        this.cart=res;
+        if(this.cart.message == 'This item is added to cart'){
+          document.getElementById('cart').innerHTML = 'Remove from cart'
+        }
+        else if(this.cart.message == 'This item is removed from cart'){
+          document.getElementById('cart').innerHTML = 'Add to Cart'
+        }
       }
     )
   }

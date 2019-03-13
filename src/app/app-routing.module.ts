@@ -14,6 +14,7 @@ import { ShowComponent } from './show/show.component';
 import { ProductComponent } from './product/product.component';
 import { FootwearComponent } from './footwear/footwear.component';
 import { ElectronicsComponent } from './electronics/electronics.component';
+import { ViewCartComponent } from './view-cart/view-cart.component';
 
 const routes: Routes = [
   {path: "", component: BodyComponent},
@@ -29,7 +30,9 @@ const routes: Routes = [
   {path: "signin", component: SigninComponent},
   {path: "activate", component: ActivateComponent},
   {path: "product/:pid", component: ProductComponent},
-  {path: ":h/:cat", component: ShowComponent}
+  {path: ":h/:cat", component: ShowComponent},
+  {path: "cart", component: ViewCartComponent}
+
 ];
 
 @NgModule({

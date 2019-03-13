@@ -144,10 +144,11 @@
       </div>
     </ng-template>
     </div>
-
-      <a type="button" class="grey-text">
-            <i class="fas fa-shopping-cart fa-lg pl-2"></i>
+    <ng-template [ngIf]="isAdminLoggedIn">
+      <a type="button" class="grey-text" routerLink="cart">
+            <i class="fas fa-shopping-cart fa-lg pl-2" routerLink="cart"></i>
       </a>
+    </ng-template>
   </links>
 
 </mdb-navbar>

@@ -36,10 +36,14 @@
     <button mdbBtn type="button" color="info" size="lg" mdbWavesEffect>
       <mdb-icon fas icon="shopping-bag" class="mr-1"></mdb-icon>Buy now
     </button>
-    <button mdbBtn type="button" color="info" size="lg" mdbWavesEffect (click)="addtocart(data.id)">
-      <mdb-icon fas icon="shopping-cart" class="mr-1" ></mdb-icon>Add to Cart
+
+    <button mdbBtn type="button" color="info" size="lg" mdbWavesEffect (click)="addtocart(data.id)" id='cart' >
+      Add to Cart
     </button>
+
   </div>
+  <!-- <p class="ml-1 mt-2">{{cart.message}}</p> -->
+
   </div>
 </div>
 <br>

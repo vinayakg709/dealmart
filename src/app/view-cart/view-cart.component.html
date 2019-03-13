@@ -1,3 +1,19 @@
-<p>
-  view-cart works!
-</p>
+<br><div class="container">
+  
+  <div class="row mb-4" *ngFor='let i of arraydata'>
+    
+    <div class="col-3" >
+        <img src="{{i.image1}}" class="cartimg">
+    </div>
+    <div class="col-9" >
+      <h3>{{i.name}}</h3>
+      <h6>{{i.brand}}</h6>
+      <h5>{{'Rs.'+i.price}}</h5>
+    </div>
+    <hr>
+  </div>
+  
+  
+</div>
+<br>
+<br>

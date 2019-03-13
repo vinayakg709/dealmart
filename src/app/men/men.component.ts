@@ -17,7 +17,7 @@ export class MenComponent implements OnInit {
   product(pro: any,cat:any){
     console.log(cat);
     this.server.cate = cat;
-    this.router.navigate([pro]);
+    this.router.navigate([pro,cat]);
   }
 
 }
